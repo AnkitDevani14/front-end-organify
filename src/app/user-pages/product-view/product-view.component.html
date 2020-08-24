@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<!-- Page Preloder -->
+
+<body>
+    <app-user-header></app-user-header>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hero__search">
+                    <div class="hero__search__form" style="margin-left: 140px;">
+                        <form action="#">
+
+                            <input type="text" placeholder="What do yo u need?">
+                            <button type="submit" class="site-btn">SEARCH</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <span class="material-icons">
+                                local_phone
+                                </span>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+65 11.188.888</h5>
+                            <span>support 24/7 time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="breadcrumb-section set-bg ">
+
+        <div class="photo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="breadcrumb__text">
+                            <h2>Product</h2>
+                            <div class="breadcrumb__option">
+                                <a>Home</a>
+                                <span>View Product</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large" [src]="product.photo" alt="">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>{{product.productName}}</h3>
+
+                        <div class="product__details__price">&#8377;{{product.price}}</div>
+                        <p>{{product.description}}</p>
+
+                        <a class="primary-btn" style="cursor: pointer;" (click)="addToCart(product.id)" *ngIf="product.quantity > 0">ADD TO CARD</a>
+
+                        <ul>
+                            <li><b>Availability</b> <span *ngIf="product.quantity == 0">Out of Stock</span> <span *ngIf="product.quantity != 0">In Stock</span> </li>
+                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Weight</b> <span>1 kg</span></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+
+
+
+    <app-admin-footer></app-admin-footer>
+</body>
+
+</html>

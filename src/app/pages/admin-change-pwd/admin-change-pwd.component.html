@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+
+    <app-admin-header></app-admin-header>
+
+    <div class="container">
+        <H3 style="color:#9ACD32"><b>Update password</b></H3>
+        <hr>
+        <div class="row">
+
+            <div class="col-lg-2">
+
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="container bg-light py-3" style="mask-border-source: 1px;">
+                    <form #adminForm="ngForm" (ngSubmit)="updatePassword()">
+
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="form_name">Current password *</label>
+                                        <input type="password" class="form-control" [(ngModel)]="opwd " (change)="checkpwd()" placeholder="Current Password" name="opwd" minlength="6" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="form_name">New Password *</label>
+                                        <input type="password" class="form-control" [(ngModel)]="npwd" required placeholder="New Password" name="npwd" minlength="6">
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="form_name">Cofirm Password *</label>
+                                    <input type="password" class="form-control" [(ngModel)]="cpwd" minlength="6" placeholder="Confirm Password" name="cpwd" required>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-warning btn-send" [disabled]="!adminForm.valid" value="Update Password">
+                                <small style="color: red; margin:10px;">* 6 character required </small>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <app-admin-footer></app-admin-footer>
+</body>
+
+</html>

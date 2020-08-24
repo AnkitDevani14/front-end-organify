@@ -1,0 +1,101 @@
+<div class="header__top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="header__top__left" style="margin-top: 10px;">
+                    <ul>
+                        <li><i class="fa fa-envelope"></i> hello@organify.com</li>
+                        <li>Free Shipping for all Order of 99 Rupees.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="header__top__right">
+                    <div class="header__top__right__social">
+                        <img src="https://img.icons8.com/officel/16/000000/instagram-new.png" style="margin: 10px;" />
+                        <img src="https://img.icons8.com/metro/26/000000/twitter.png" style="margin: 10px;" />
+                        <img src="https://img.icons8.com/metro/26/000000/pinterest.png" style="margin: 10px;" />
+                        <img src="https://img.icons8.com/android/24/000000/facebook-new.png" style="margin: 10px;" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="header__logo">
+                <a href="./index.html"><img src="./../../../assets/logo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <nav class="header__menu">
+                <ul>
+                    <li class="active">
+                        <span class="material-icons">home</span>
+                        <a routerLink="/">Home</a>
+                    </li>
+                    <li>
+                        <span class="material-icons">
+                                    shopping_basket
+                                    </span>
+                        <a routerLink="/shop">Shop</a></li>
+
+
+
+                    <li>
+                        <span class="material-icons">
+                            question_answer
+                            </span>
+                        <a routerLink="/contact">Contact</a></li>
+
+                    <li *ngIf="!logIn()">
+                        <span class="material-icons">
+                            login
+                            </span>
+                        <a routerLink="/login">Sign In</a></li>
+                    <li *ngIf="!logIn()">
+                        <span class="material-icons">
+                            person_add
+                            </span>
+                        <a routerLink="/register">Sign Up</a></li>
+
+
+
+
+                </ul>
+            </nav>
+        </div>
+        <div class="col-lg-2">
+            <div class="header__menu ">
+                <ul>
+                    <li *ngIf="logIn()">
+                        <span class="material-icons">
+                                    account_circle
+                                    </span>
+                        <a href="./contact.html">User</a>
+                        <ul class="header__menu__dropdown">
+
+                            <li><a routerLink="/change-password-user">Change Password</a></li>
+                            <li style="cursor: pointer;" (click)="logout()"><a>Log Out</a></li>
+                        </ul>
+                    </li>
+                    <li *ngIf="logIn()" style="margin-top: 2px;">
+                        <span class="span">{{cart}}</span>
+                        <span class="material-icons">
+                            shopping_cart
+                            </span>
+                        <a routerLink="/cart">Cart</a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</div>

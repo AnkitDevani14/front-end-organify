@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+
+    <app-admin-header></app-admin-header>
+
+    <div class="container">
+        <H3 style="color:#9ACD32"><b>Update Profile</b></H3>
+        <hr>
+        <div class="row">
+
+            <div class="col-lg-2">
+
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="container bg-light py-3" style="mask-border-source: 1px;">
+                    <form #adminForm="ngForm" (ngSubmit)="updateProfile()">
+                        <div class="messages"></div>
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="form_name">First Name *</label>
+                                        <input id="form_name" type="text" class="form-control" #firstname="ngModel" [ngClass]="{ 'is-invalid': firstname.invalid && firstname.touched }" [(ngModel)]="users.firstname " pattern="[a-zA-Z\s]+" placeholder="First Name" name="firstname" required>
+
+                                        <small style="color: red;" *ngIf="firstname.errors?.required && firstname.touched ">* First Name is Required</small>
+                                        <small style="color: red;" *ngIf="firstname.touched && firstname.errors?.pattern">* First Name is Invalid</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="form_name">Last Name *</label>
+                                        <input id="form_name" type="text" class="form-control" #lastname="ngModel" [(ngModel)]="users.lastname" [ngClass]="{ 'is-invalid': lastname.invalid && lastname.touched }" pattern="[a-zA-Z\s]+" required placeholder="Last Name" name="lastname">
+
+                                        <small style="color: red;" *ngIf="lastname.touched && lastname.errors?.required ">* Last Name is Required</small>
+                                        <small style="color: red;" *ngIf="lastname.touched && lastname.errors?.pattern">* Last Name is Invalid</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-sm-8">
+                                <div class="form-group">
+                                    <label for="form_name">Email *</label>
+                                    <input id="form_name" type="Email" class="form-control" #email="ngModel" [ngClass]="{ 'is-invalid': email.invalid && email.touched }" [(ngModel)]="users.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email" name="email" required>
+
+                                    <small style="color: red;" *ngIf="email.errors?.required && email.touched ">* Email is Required</small>
+                                    <small style="color: red;" *ngIf="email.errors?.pattern && email.touched ">* Email is Invalid</small>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="form_name">User Name *</label>
+                                    <input id="form_name" type="text" class="form-control" [(ngModel)]="users.username" #username="ngModel" placeholder="Username" [ngClass]="{ 'is-invalid': username.invalid && username.touched }" name="username" required>
+
+                                    <small style="color: red;" *ngIf="username.invalid && username.touched ">* User Name is Required</small>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-warning btn-send" [disabled]="!adminForm.valid" value="Update Profile">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <app-admin-footer></app-admin-footer>
+</body>
+
+</html>

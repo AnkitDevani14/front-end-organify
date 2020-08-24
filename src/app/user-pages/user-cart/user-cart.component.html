@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<!-- Page Preloder -->
+
+<body>
+
+    <app-user-header></app-user-header>
+
+
+    <div class="container-fluid">
+        <ngx-spinner bdColor="rgba(0, 0, 0, 1)">
+            <p style="color: white;"> Loding...</p>
+        </ngx-spinner>
+        <section class="breadcrumb-section set-bg ">
+
+            <div class="photo">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="breadcrumb__text">
+                                <h2>Shopping Cart</h2>
+                                <div class="breadcrumb__option">
+                                    <a href="./index.html">Home</a>
+                                    <span>Shopping Cart</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="shoping-cart spad">
+            <div class="container" *ngIf="!totalFound()">
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-4">
+                        <h3 style="color: red;">Cart is Empty!
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i></h3>
+                    </div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
+            <div class="container" *ngIf="totalFound()">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shoping__cart__table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="shoping__product">Products</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let carts of cart">
+                                        <td class="shoping__cart__item">
+                                            <img width="100px" height="100px" [src]="carts.product.photo" alt="">
+                                            <h5>{{carts.product.productName}}</h5>
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            &#8377;{{carts.price}}
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <i class="fa fa-minus-circle" style="cursor: pointer;" aria-hidden="true" (click)="removeCart(carts.product.id,carts.user.id) "></i>
+
+                                                    <input type="text" value="{{carts.quantity}}" readonly>
+
+                                                    <i class="fa fa-plus-circle " style="cursor: pointer; " (click)="addCart(carts.product.id,carts.user.id)" aria-hidden="true "></i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total ">
+                                            &#8377;{{carts.totalPrice}}
+                                        </td>
+                                        <td class="shoping__cart__item__close ">
+                                            <a style="color: green; cursor: pointer; " (click)="deleteCart(carts.product.id,carts.user.id) "><b>&#10005;</b></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-lg-12 ">
+                        <div class="shoping__cart__btns ">
+                            <a routerLink="/shop" class="primary-btn cart-btn ">CONTINUE SHOPPING</a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="shoping__checkout ">
+                            <h5>Cart Total</h5>
+                            <ul>
+
+                                <li>Total <span>&#8377;{{total}}</span></li>
+                            </ul>
+                            <a routerLink="/user-address" class="primary-btn ">PROCEED TO CHECKOUT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shoping Cart Section End -->
+
+
+
+    </div>
+    <app-admin-footer></app-admin-footer>
+</body>
+
+</html>

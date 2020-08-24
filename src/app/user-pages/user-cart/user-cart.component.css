@@ -1,0 +1,11 @@
+@import './../../custom/header-footer/css/bootstrap.min.css';
+@import './../../custom/header-footer/css/style.css';
+.photo {
+    background-image: url('E:\Learning Material\PROJECT\shopify\src\assets\breadcrumb.jpg');
+    width: 2000px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 45px 0 40px;
+}

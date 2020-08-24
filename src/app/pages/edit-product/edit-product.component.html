@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+
+    <app-admin-header></app-admin-header>
+
+    <div class="container">
+        <H3 style="color:#9ACD32"><b>Edit Products</b></H3>
+        <hr>
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="card booking-card">
+
+                    <!-- Card image -->
+                    <div class="view overlay">
+                        <img class="card-img-top" [src]="product.photo" height="300px" width="100px" alt="Card image cap">
+
+                    </div>
+
+                    <!-- Card content -->
+                    <div class="card-body">
+
+                        <!-- Title -->
+                        <h4 class="card-title font-weight-bold"><a>{{product.productName}}</a></h4>
+                        <!-- Data -->
+                        <div>
+                            <p class="mb-2">&#8377;{{product.price}}</p>
+                            <p class="mb-2"><b>Quantity :</b> {{product.quantity}}</p>
+                        </div>
+
+                        <!-- Text -->
+                        <p class="card-text">{{product.description}}</p>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="container bg-light py-3" style="mask-border-source: 1px;">
+                    <form #productForm="ngForm" (ngSubmit)="addProduct()">
+                        <div class="messages"></div>
+                        <div class="controls">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="form_name">Product name *</label>
+                                        <input id="form_name" type="text" #productName="ngModel" [ngClass]="{ 'is-invalid': productName.invalid &&  productName.touched }" name="productName" class="form-control" [(ngModel)]="product.productName " pattern="[a-zA-Z\s]+" placeholder="Please enter product name *"
+                                            required>
+
+                                        <small style="color: red;" *ngIf="productName.errors?.required && productName.touched ">* product name is Required</small>
+                                        <small style="color: red;" *ngIf="productName.touched && productName.errors?.pattern ">* product name is invalid</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="form_name">Price *</label>
+                                    <input id="form_name" type="number" #price="ngModel" name="price" [ngClass]="{ 'is-invalid': price.invalid &&  price.touched }" class="form-control" [(ngModel)]="product.price " placeholder="Please enter price per kg. *" required>
+                                    <small style="color: red;" *ngIf="price.errors?.required && price.touched ">* price is Required</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="form_name">Quantity *</label>
+                                    <input id="form_name" type="number" #quantity="ngModel" name="quantity" [ngClass]="{ 'is-invalid': quantity.invalid &&  quantity.touched }" [(ngModel)]="product.quantity " class="form-control" placeholder="Please enter Quantity in kg. *" required="required">
+                                    <small style="color: red;" *ngIf="quantity.errors?.required && quantity.touched ">* Quantity is Required</small>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="form_message">description *</label>
+                                    <textarea id="form_message" #description="ngModel" name="description" class="form-control" [ngClass]="{ 'is-invalid': description.invalid &&  description.touched }" [(ngModel)]="product.description " placeholder="product description *" rows="4" required></textarea>
+                                    <small style="color: red;" *ngIf="description.errors?.required && description.touched ">* description is Required</small>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="submit" class="btn btn-warning btn-send" value="Send message">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <app-admin-footer></app-admin-footer>
+</body>
+
+</html>

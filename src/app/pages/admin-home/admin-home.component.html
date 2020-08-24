@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+
+    <app-admin-header></app-admin-header>
+    <div class="container">
+
+        <div class="row mb-3">
+            <div class="col-xl-3 col-sm-6 py-2">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-body bg-success">
+                        <div class="rotate">
+                            <span class="material-icons">
+                                supervisor_account
+                                </span>
+                        </div>
+                        <h6 class="text-uppercase">Users</h6>
+                        <h1 class="display-4">{{user}}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 py-2">
+                <div class="card text-white bg-danger h-100">
+                    <div class="card-body bg-danger">
+                        <span class="material-icons">
+                            category
+                            </span>
+                        <h6 class="text-uppercase">Category</h6>
+                        <h1 class="display-4">{{category}}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 py-2">
+                <div class="card text-white bg-info h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <span class="material-icons">
+                                store_mall_directory
+                                </span>
+                        </div>
+                        <h6 class="text-uppercase">Products</h6>
+                        <h1 class="display-4">{{product}}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 py-2">
+                <div class="card text-white bg-warning h-100">
+                    <div class="card-body">
+                        <span class="material-icons">
+                            attach_money
+                            </span>
+                        <h6 class="text-uppercase">TOtal Selling</h6>
+                        <h1 class="display-4">{{sales}}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <H3><b>Users</b></H3>
+                <hr>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users; let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{user.firstname}}</td>
+                            <td>{{user.lastname}}</td>
+                            <td>{{user.email}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <ul class="nav nav-pills">
+
+                    <li class="nav-item " *ngFor="let p of pages; let i=index">
+                        <a class="nav-link" href="" (click)="setPage(i,$event)" [ngClass]="{'active': i==page}">{{i+1}}</a>
+                    </li>
+
+
+                </ul>
+
+                <br>
+            </div>
+            <div class="col-lg-4">
+                <H3 style="color:#9ACD32"><b>Category</b></H3>
+                <hr>
+                <table class="table  table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Category</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let category of categotyList; let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{category.category}}</td>
+                            <td style="cursor: pointer; color: red;" (click)="deleteCategory(category.id)"> <span class="material-icons">
+                                delete_outline
+                                </span></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Featured Section End -->
+    <app-admin-footer></app-admin-footer>
+</body>
+
+</html>
